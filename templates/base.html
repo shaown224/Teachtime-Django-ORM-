@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <title>TeachTime</title>
+</head>
+<body>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'index' %}"><img src="/media/graduationcap.png" width="50px"></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'App_Login:logout' %}">Logout</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'App_Login:profile' %}">Your Profile</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'App_Login:signup' %}">SignUp</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'App_Login:login' %}">Login</a>
+      </li>
+    </ul>
+
+
+    {% if user.is_authenticated %}
+      <div class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+          @{{user.username}}
+        </a>
+        <div class="dropdown-menu" style="background:#72F98B">
+          <a class="dropdown-item" href="{% url 'App_Blog:create_blog' %}">Publish Tution Post</a>
+          <a class="dropdown-item" href="{% url 'App_Blog:my_blogs' %}">My Tution Post</a>
+          <a class="dropdown-item" href="{% url 'App_Login:profile' %}">Your Profile</a>
+          <hr>
+          <a class="dropdown-item" href="{% url 'App_Login:logout' %}">Logout</a>
+        </div>
+      </div>
+      {% endif %}
+  </nav>
+  <div class="container" style="padding-top:20px; background-color: #2d2d39">
+    {% block body_block %}
+    {% endblock %}
+  </div>
+
+</body>
+</html>

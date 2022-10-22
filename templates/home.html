@@ -1,0 +1,305 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Homepage</title>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+</head>
+<body>
+ <div class="navbar">
+
+   <!-- Navigation Bar  && Button er code -->
+   <div class="ui secondary  menu">
+     <a class="active item" href="{% url 'tt-home' %}" style="font-family: Roboto; font-weight: bold; font-size:20px " >
+        Home
+     </a>
+     <a class="item" style="font-family: Roboto; font-weight: bold; font-size:20px ">
+       Guide
+     </a>
+     <a class="item" style="font-family: Roboto; font-weight: bold; font-size:20px ">
+       Upload Notes
+     </a>
+     <a class="item" style="font-family: Roboto; font-weight: bold; font-size:20px ">
+       Group Study
+     </a>
+   </div>
+
+   {% if request.user.is_authenticated %}
+   <div class="button">
+	<a href="{% url 'post_tuition' %}">
+	  <button class="lin">Post Tution</button>   
+   	</a>
+	<a href="{% url 'logout' %}">
+		<button class="lin">Log Out</button>   
+	</a>
+	<a href="{% url 'updateUser' user.id %}">
+		<button class="lin">Edit Profile</button>   
+	</a>
+ 	</div>
+	
+	{% else %}
+   <div class="button">
+      <a href="{% url 'sign-up' %}">
+         <button class="sup">Sign Up</button>
+      </a>
+      <a href="{% url 'sign-in' %}">
+         <button class="lin">Log in</button>   
+      </a>
+	  <a href="{% url 'post_tuition' %}">
+		<button class="lin">Post Tution</button>   
+	 </a>
+   </div>
+   {% endif %}
+
+   </div>
+   <!---Sesh navigation bar and button -->
+ 
+   <!--navigation bar er porer part -->	   
+         <div class="Base">
+   	   	 <div class="text">
+   	   	 	<h1 class="fbt">Find best teacher for your learning</h1>
+   	   	 </div>
+   	   	 <div class="subpara">
+   	   	 	<p>Millions and students use teach time to learn and earn money</p>
+   	   	 </div>
+   	   	 <div class="button2">
+   	   	    <button class="btn4">Find A Teacher</button>
+   	   	    <button class="btn5">Find A Tution</button>
+   	   	 </div>
+   	   	 <div class="homepic1">
+   	   	 	<img src="{% static 'images/homepic.png' %}" height="253px" class="img1">
+   	   	 </div>
+   	   </div>
+   	   <div class="subbase">
+   	   	<h1 class="ns"> Need Something Else  ?</h1>
+   	   	</div>
+   	   	<div class="section" style="padding-top: 70px;">
+   	   		<div class="s1">
+    	   			<div class="logo">
+   	   				<img src="{% static 'images/post.png' %}">
+   	   				<p class="pt">Post Tution</p>
+   	   			</div>
+   	   			<div class="para1">
+   	   				<p class="pd1">It’s free and easy to post a tuition. Simply fill in a title, description and budget and competitive bids come within minutes.</p>
+   	   			</div>
+   	   		</div>
+   	   		<div class="s2">
+   	   			<div class="logo">
+   	   				<img src="{% static 'images/chse.png' %}">
+   	   				<p class="pt1">Post Tution</p>
+   	   			</div>
+   	   			<div class="para1">
+   	   				<p  class="pd2">It’s free and easy to post a tuition. Simply fill in a title, description and budget and competitive bids come within minutes.</p>
+   	   			</div>
+   	   		</div>
+   	   		<div class="s3">
+   	   			<div class="logo">
+   	   				<img src="{% static 'images/pmnt.png' %}">
+   	   				<p class="pt2">Post Tution</p>
+   	   			</div>
+   	   			<div class="para1">
+   	   				<p class="pd3">It’s free and easy to post a tuition. Simply fill in a title, description and budget and competitive bids come within minutes.</p>
+   	   			</div>
+   	   		</div>
+   	   		<div class="s4">
+   	   			<div class="logo">
+   	   				<img src="{% static 'images/faq.png' %}">
+   	   				<p class="pt3">Post Tution</p>
+   	   			</div>
+   	   			<div class="para1">
+   	   				<p class="pd4">It’s free and easy to post a tuition. Simply fill in a title, description and budget and competitive bids come within minutes.</p>
+   	   			</div>
+   	   		</div> 
+   	   	</div> <!--sesh -->
+
+            <!--random bar -->
+   	   	<div class="Bar">
+   	   		<p class="bs">_______________________________________________________________________________________________________________________</p>
+   	   	</div><!--sesh -->
+
+            <!-- Teacher list and View more teachers name-e ekta button ase. -->
+   	   	<div class="thead">
+   	   		<h1 class="tp">Our Teachers</h1>
+   	   	</div>
+   	   	<div class="Teacher">
+   	   	   <div class="t1">
+   	   	   	<img src="{% static 'images/rakib.png' %}" height="90px" width="90px" class="img3">
+   	   	   	<h1 class="ri">Rakibul Islam</h1>
+   	   	   	<p class="ts1">Physics,Math</p>
+   	   	   </div>
+
+   	   	   <div class="t2">
+   	   	   	<img src="{% static 'images/jawad.png' %}" height="90px" width="90px" class="img3">
+   	   	   	<h1 class="jt">Jawad Tanjim</h1>
+   	   	   	<p class="ts2">OOP,Java</p>
+   	   	   </div>
+
+   	   	   <div class="t3">
+   	   	   	<img src="{% static 'images/nihal.png' %}" height="90px" width="90px" class="img3">
+   	   	   	<h1 class="sn">Shahriar Nihal</h1>
+   	   	   	<p class="ts3">Web Designing,Advanvce Web designing</p>
+   	   	   </div>
+   	   	   
+   	   	   <div class="t4">
+   	   	   	<img src="{% static 'images/shawon.png' %}" height="90px" width="90px" class="img3">
+   	   	   	<h1 class="sp">Shaown Paul</h1>
+   	   	   	<p class="ts4">Machine Learning,Data Structure</p>
+   	   	   </div>
+
+   	   	</div>
+   	   	<div class="btncls">
+               <!-- view more teachers button -->
+   	   	<button class="tbutton">
+   	   		<h3>View More Teachers</h3>
+   	   	</button>
+   	   </div>
+         <!-- Sesh Teacher part -->
+
+   	   <div class="Bar">  <!-- just a random bar -->
+   	   		<p class="pbar">_______________________________________________________________________________________________________________________</p>
+   	   	</div>
+   	   	<div class="randtext">
+   	   		<h1 class="pcourse">Our Provided Courses</h1>
+   	   	</div>
+
+            <!-- eta holo ekhe amra je je course gula sikhabo seigular hyperlink add kora hoise -->
+   	   	<div class="subject">
+
+   	   		<div class="s11">
+   	   			<div class="p">
+   	   			<a href="#" class="a1">Physics</a>
+   	   		   </div>
+   	   		   <div class="c">
+   	   			<a href="#" class="a2">Chemistry</a>
+   	   			</div>
+   	   			<div class="m">
+   	   			<a href="#"  class="a3">Math</a>
+   	   			</div>
+   	   			<div class="hm">
+   	   			<a href="#"  class="a4">Higher Math</a>
+   	   			</div>
+   	   			<div class="bio">
+   	   			<a href="#"  class="a5">Biology</a>
+   	   			</div>
+
+   	   		</div>
+   	   		<div class="s12">
+   	           <div class="w">
+   	   			<a href="#" class="a6">Web Designing</a>
+   	   		   </div>
+   	   		   <div class="g">
+   	   			<a href="#" class="a7">Graphics Designing</a>
+   	   			</div>
+   	   			<div class="d">
+   	   			<a href="#" class="a8">Digital Marketing</a>
+   	   			</div>
+   	   			<div class="aw">
+   	   			<a href="#" class="a9">Advanced Web Designing</a>
+   	   			</div>
+   	   			<div class="bp">
+   	   			<a href="#" class="a10">Backend Programming</a>
+   	   			</div>
+   	   		</div>
+   	         <div class="s13">
+   	         	<div class="ml">
+   	   			<a href="#" class="a11">Machine Learning</a>
+   	   		   </div>
+   	   		   <div class="dm">
+   	   			<a href="#" class="a12">Data Mining</a>
+   	   			</div>
+   	   			<div class="bn">
+   	   			<a href="#" class="a13">Bioinformatics</a>
+   	   			</div>
+   	   			<div class="dip">
+   	   			<a href="#" class="a14">Digital Image Processing</a>
+   	   			</div>
+   	   			<div class="bd">
+   	   			<a href="#" class="a15">Big Data</a>
+   	   			</div>
+   	         </div>
+
+
+   	   		<div class="s14">
+   	   			<div class="ds">
+   	   			<a href="#" class="a16">Data Structure & algorithm</a>
+   	   		   </div>
+   	   		   <div class="cp">
+   	   			<a href="#" class="a17">C & C++</a>
+   	   			</div>
+   	   			<div class="jv">
+   	   			<a href="#" class="a18">Java</a>
+   	   			</div>
+   	   			<div class="oop">
+   	   			<a href="#" class="a19">OOP with Java</a>
+   	   			</div>
+   	   			<div class="pt22">
+   	   			<a href="#" class="a20">Python</a>
+   	   			</div>
+   	   		</div>
+   	   	</div>
+             <!-- ekhne teachers part sesh -->
+
+
+             <!--- ekhan theke footer er part suru rakib eikhane tor kono kaj nai -->
+   	   	<div class="footer">
+   	   		<div class="f1">
+   	   			<div class="fh1">
+   	   				<h1 style="line-height: 3; margin-left: 22%; font-family: Roboto;font-size:35px; font-weight: bold;">Teach Time</h1>
+   	   			</div>
+   	   			<div class="fc1">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Teacher</h3>
+   	   			</div>
+   	   			<div class="fc2">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Note Upload</h3>
+   	   			</div><div class="fc3">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Fees & Charge</h3>
+   	   			</div><div class="fc4">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Group Study</h3>
+   	   			</div>
+   	   		</div>
+   	   		<div class="f2">
+   	   			<div class="fh2">
+   	   				<h1 style="line-height: 3; font-family: Roboto;font-size:35px; font-weight: bold;">Terms&Conditions</h1>
+   	   			</div>
+   	   			<div class="fc5">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Privacy Policy</h3>
+   	   			</div>
+   	   			<div class="fc6">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Copyright Policy</h3>
+   	   			</div><div class="fc7">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Code Of Conduct</h3>
+   	   			</div><div class="fc8">
+   	   				<h3 style="margin-left: 20%; line-height: 4;">Fees & Charges</h3>
+   	   			</div>
+   	   		</div>
+
+   	   		<div class="f3">
+   	   			<div class="fh3">
+   	   				<h1 style="line-height: 3; margin-left: 35%; font-family: Roboto;font-size:35px; font-weight: bold;">About</h1>
+   	   			</div>
+   	   			<div class="fc9">
+   	   				<h3 style="margin-left: 35%; line-height: 4;">About Us</h3>
+   	   			</div>
+   	   			<div class="fc10">
+   	   				<h3 style="margin-left: 35%; line-height: 4;">How it works</h3>
+   	   			</div><div class="fc11">
+   	   				<h3 style="margin-left: 35%; line-height: 4;">Security</h3>
+   	   			</div>
+   	   			<div class="fc12">
+   	   			  <h3 style="margin-left: 35%; line-height: 4;">Stories</h3>
+   	   			</div>
+   	   		</div>
+   	   		<div class="f4">
+   	   			<div class="fh4">
+   	   				<h1 style="line-height: 3; margin-left: 37%; font-family: Roboto;font-size:35px; font-weight: bold;">Follow On</h1>
+   	   			</div>
+   	   			<div class="simage">
+   	   				<img src="{% static 'images/fb.png' %}" style="margin-left: 35%">
+   	   				<img src="{% static 'images/twitter.png' %}">
+   	   				<img src="{% static 'images/google.png' %}">
+   	   			</div>
+   	   		</div>
+   	   	</div>
+</body>
+</html>

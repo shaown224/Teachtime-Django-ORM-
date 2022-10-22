@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load custom_filters %}
+{% block title_block %} {{user}} {% endblock %}
+{% block body_block %}
+<style>
+  p {color:white}
+  h3 {color:white}
+  h6 {color:white}
+</style>
+{% for blog in user.post_author.all %}
+<h3>{{blog.blog_title}}</h3>
+<h6>{{blog.publish_date}}</h6>
+<div class="row"  style="background-color: #3f4156; border-radius:25px">
+  <div class="col-sm-4">
+    <img src="/media/{{blog.blog_image}}" width="70%">
+  </div>
+  <div class="col-sm-8">
+    <p>{{blog.blog_content|range_filter|linebreaks}}</p>
+    <a href="{% url 'App_Blog:blog_details' slug=blog.slug %}">Read More</a>
+  </div>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}
